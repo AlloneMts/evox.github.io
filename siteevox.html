@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evox - Suplementos de Alto Desempenho</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: white;
+      color: black;
+      line-height: 1.6;
+      overflow-x: hidden; /* Evita rolagem horizontal devido a animações */
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background-color: #f8f8f8; /* Levemente mais claro para contraste */
+    }
+    header h1 {
+      font-size: 2.8rem; /* Aumentado para mais destaque */
+      margin-bottom: 1rem;
+      color: #333;
+      /* Animação do título ao carregar */
+      animation: fadeInSlideUpInitial 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    header p {
+      font-size: 1.3rem; /* Aumentado */
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+    .section p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+    .section img {
+      max-width: 300px;
+      width: 90%;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para destaque */
+    }
+    .grid-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .persona {
+      background-color: #f5f5f5;
+      border-radius: 20px;
+      padding: 2.5rem; /* Mais padding */
+      box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    }
+    .persona p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+    .ingredients-list {
+      text-align: left;
+      margin: 1.5rem auto;
+      max-width: 600px;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    .ingredients-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ingredients-list li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .ingredients-list strong {
+      color: #007bff; /* Cor para destacar ingredientes */
+    }
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem; /* Mais espaçamento */
+      margin-top: 2rem;
+    }
+    .testimonial {
+      background-color: #f0f0f0; /* Cor mais suave */
+      padding: 1.5rem;
+      border-radius: 15px; /* Bordas mais suaves */
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-size: 1.05rem;
+    }
+    .testimonial strong {
+      display: block;
+      margin-bottom: 0.6rem; /* Mais espaçamento */
+      color: #007bff; /* Cor para o nome */
+      font-size: 1.1rem;
+    }
+    .video-section {
+      margin-top: 3rem;
+    }
+    video {
+      max-width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .scientific-references {
+      text-align: left;
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 1.5rem;
+      background-color: #e9f7ff; /* Fundo azul claro */
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    .scientific-references ul {
+      list-style: disc; /* Bolinhas */
+      padding-left: 20px;
+    }
+    .scientific-references li {
+      margin-bottom: 0.8rem;
+    }
+    .scientific-references a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .scientific-references a:hover {
+      text-decoration: underline;
+    }
+    .buttons-container {
+      display: flex;
+      flex-direction: column; /* Em coluna no mobile */
+      gap: 1.5rem;
+      margin: 3rem auto;
+      max-width: 400px; /* Limita a largura para centralizar */
+    }
+    .action-button {
+      display: block;
+      padding: 1.2rem 2.5rem;
+      background: #007bff; /* Cor primária */
+      color: #fff;
+      border: none;
+      border-radius: 8px; /* Bordas mais suaves */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.15rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+      animation: pulse 2s infinite ease-in-out; /* Animação de pulso */
+    }
+    .action-button:hover {
+      background: #0056b3; /* Cor mais escura no hover */
+      transform: translateY(-2px); /* Pequeno efeito de elevação */
+      animation: none; /* Para de pulsar no hover */
+    }
+    .insta-button {
+      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+      box-shadow: 0 4px 10px rgba(220, 39, 67, 0.4);
+    }
+    .insta-button:hover {
+      background: linear-gradient(45deg, #e08423 0%,#d6582c 25%,#cc1733 50%,#bc1356 75%,#ac0878 100%);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 3rem;
+      padding-bottom: 1.5rem;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
+
+    /* Animação genérica para elementos que aparecem ao rolar */
+    .fade-in-slide-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-slide-up.animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Keyframes para animação inicial do título */
+    @keyframes fadeInSlideUpInitial {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Keyframes para a animação de pulso dos botões */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    /* Media Queries para responsividade */
+    @media (min-width: 768px) {
+      .grid-images {
+        flex-direction: row;
+      }
+      .testimonials {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .testimonial {
+        flex: 1;
+        min-width: 300px;
+        max-width: 45%;
+      }
+      .buttons-container {
+        flex-direction: row; /* Em linha no desktop */
+        max-width: 600px;
+      }
+    }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .section h2 {
+        font-size: 1.7rem;
+      }
+      .action-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="evoxT.png" alt="Logo da Evox" style="max-width: 200px; margin-bottom: 1.5rem;">
+    <h1>EVOX: Sua Energia. Seu Foco. Seus Resultados.</h1>
+    <p>Descubra o suplemento de alta performance que otimiza seu corpo e mente, levando você além dos seus limites em treinos, estudos e no dia a dia. Design simples, elegante e eficaz para resultados que você sente.</p>
+  </header>
+
+  <div class="section grid-images">
+    <img src="pote.jpg" alt="Embalagem do Suplemento Evox" class="fade-in-slide-up">
+    <img src="pilula.jpg" alt="Cápsula do Suplemento Evox" class="fade-in-slide-up">
+  </div>
+
+  <div class="section">
+    <h2 class="fade-in-slide-up">A Ciência por Trás da Sua Performance</h2>
+    <p class="fade-in-slide-up">Evox foi formulado com ingredientes premium e na dosagem ideal para maximizar sua energia, foco e resistência. Conheça a nossa composição de alta potência:</p>
+    <div class="ingredients-list fade-in-slide-up">
+      <ul>
+        <li>
+          <strong>200mg de Nitrato de Potássio:</strong> Essencial para a vasodilatação, o nitrato de potássio otimiza o fluxo sanguíneo para os músculos, melhorando a entrega de oxigênio e nutrientes. Isso se traduz em mais **resistência**, **força** e uma **melhor recuperação** durante e após o treino.
+        </li>
+        <li>
+          <strong>100mg de Dicafeína Malato:</strong> Uma forma avançada de cafeína que oferece energia prolongada e um foco mental aguçado, sem os picos e quedas abruptas da cafeína comum. Sinta-se **mais alerta**, **concentrado** e com energia **constante** para qualquer desafio.
+        </li>
+      </ul>
+      <p>A combinação sinérgica desses ingredientes garante que você tenha o suporte necessário para um desempenho superior, seja na academia, no trabalho ou nos estudos.</p>
+    </div>
+  </div>
+
+  <div class="section persona">
+    <img src="persona.jpg" alt="Público-Alvo Evox" class="fade-in-slide-up">
+    <h2 class="fade-in-slide-up">Quem é Evox?</h2>
+    <p class="fade-in-slide-up">
+      O Evox é o suplemento definitivo para quem busca ir além. Se você é um **atleta** que exige o máximo em cada sessão, um **estudante** que precisa de foco ininterrupto para longas horas de estudo, ou um **profissional** que deseja mais energia e clareza mental para encarar os desafios diários, Evox entrega **performance real e resultados visíveis**.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="fade-in-slide-up">O que estão dizendo sobre a Evox</h2>
+    <div class="testimonials">
+      <div class="testimonial fade-in-slide-up">
+        <strong>Carla M., 28 anos - Personal Trainer</strong>
+        "Minha rotina de treinos e trabalho exige muito. Desde que comecei a usar Evox, minha disposição para treinar aumentou exponencialmente e consigo manter o foco com meus clientes o dia todo. É impressionante como minha energia se mantém estável, sem aquele 'crash' no meio do dia."
+      </div>
+      <div class="testimonial fade-in-slide-up">
+        <strong>Lucas V., 22 anos - Estudante de Medicina</strong>
+        "Eu precisava de algo que me ajudasse a manter a concentração durante as longas horas de estudo para as provas. Evox não só me deu mais energia para a academia, mas o foco que ganhei nos estudos é incrível. Consigo absorver mais conteúdo e com mais clareza, o que era um grande desafio antes."
+      </div>
+      <div class="testimonial fade-in-slide-up">
+        <strong>Renata T., 35 anos - Empreendedora</strong>
+        "Como empreendedora, meus dias são imprevisíveis e exigem muita energia e clareza mental. Evox me proporcionou um aumento significativo na minha produtividade. Sinto-me mais alerta, com a mente mais ágil para tomar decisões e com energia para lidar com todas as demandas do meu negócio."
+      </div>
+    </div>
+  </div>
+
+  <div class="section video-section">
+    <h2 class="fade-in-slide-up">Veja o que um influenciador tem a dizer sobre o Evox</h2>
+    <video controls class="fade-in-slide-up">
+      <source src="influencer.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos.
+    </video>
+  </div>
+
+  <div class="section scientific-references">
+    <h2 class="fade-in-slide-up">Base Científica Evox</h2>
+    <p class="fade-in-slide-up">Nossa formulação é embasada em pesquisas para garantir eficácia e segurança. Conheça alguns estudos que corroboram os benefícios dos ingredientes Evox:</p>
+    <ul class="fade-in-slide-up">
+      <li>
+        <a href="https://abccardiol.org/wp-content/uploads/articles_xml/0066-782X-abc-120-01-e20220209/0066-782X-abc-120-01-e20220209.x65822.pdf" target="_blank" rel="noopener noreferrer">
+          Ação do Nitrato de Potássio na Saúde Cardiovascular e Desempenho Físico - Um Estudo Abrangente
+        </a>
+      </li>
+      <li>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/20042797/" target="_blank" rel="noopener noreferrer">
+          International society of sports nutrition position stand: caffeine and exercise performance - PubMed
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="buttons-container fade-in-slide-up">
+    <a class="action-button insta-button" href="https://instagram.com/evox_suplementos" target="_blank">Compre Agora no Instagram</a>
+    <a class="action-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfueukm8MFU1YcfLlpmPyvdinvOjyAjeC0tTulpXNRMATVMbA/viewform?usp=sharing&ouid=105968676874715306382" target="_blank">Participe da Pesquisa Evox</a>
+  </div>
+
+  <footer>
+    <p class="fade-in-slide-up"><strong>Aviso Legal:</strong> Este produto não substitui uma alimentação equilibrada e seu consumo deve ser orientado por profissional da saúde. Os resultados podem variar de pessoa para pessoa.</p>
+    <p class="fade-in-slide-up">&copy; 2025 EVOX. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Seleciona todos os elementos que devem ter a animação ao rolar
+      const animatedElements = document.querySelectorAll('.fade-in-slide-up');
+
+      const observerOptions = {
+        root: null, // Observa a viewport
+        rootMargin: '0px',
+        threshold: 0.1 // A animação dispara quando 10% do elemento está visível
+      };
+
+      const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+            observer.unobserve(entry.target); // Para de observar depois de animar
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>
